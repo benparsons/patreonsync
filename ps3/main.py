@@ -60,13 +60,12 @@ if __name__ == "__main__":
                                            staff])
 
     for room, guests in guest_list.iteritems():
-        if room != '#polynomial-supporters:matrix.org':
-            community_guests = [guest[0] for guest in guests if guest[1]]
-            patroniser.enforce_group(room.replace('#', '+', 1),
-                                    community_guests,
-                                    actually_invite=args.do_group_invites,
-                                    actually_kick=args.do_group_kicks,
-                                    verbose=args.verbose)
+        community_guests = [guest[0] for guest in guests if guest[1]]
+        patroniser.enforce_group(room.replace('#', '+', 1),
+                                community_guests,
+                                actually_invite=args.do_group_invites,
+                                actually_kick=args.do_group_kicks,
+                                verbose=args.verbose)
 
         room_guests = [guest[0] for guest in guests]
         patroniser.enforce(room, room_guests,
