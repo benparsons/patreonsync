@@ -56,7 +56,8 @@ class PatreonGuestList(object):
             for (guest, is_top_tier) in guests:
                 mxids = self._address_book.get_mxids(guest.pid)
                 if len(mxids) > 0:
-                    print 'PA: Found Patreon "%s" in address book; resolved to %s' % (guest.name, ','.join(mxids))
+                    if verbose:
+                        print 'PA: Found Patreon "%s" in address book; resolved to %s' % (guest.name, ','.join(mxids))
                     for mxid in mxids:
                         mxid_guest_list[room].append((mxid, is_top_tier))
                 elif skip_lookup:
