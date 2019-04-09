@@ -65,7 +65,7 @@ class PatreonGuestList(object):
                 elif guest.pid in looked_up_guests:
                     print 'PA: Couldn\'t find Patreon "%s" in address book; already looked up via Matrix this session so skipping for now.' % guest.name
                 else:
-                    print 'PA: Couldn\'t find Patreon "%s" in address book; resolving via matrix...' % guest.name
+                    print 'PA: Couldn\'t find Patreon "%s" (%s) in address book; resolving via matrix...' % (guest.name, guest.pid)
                     looked_up_guests.append(guest.pid)
                     mxid = self._patroniser_bot.get_mxid_from_patron(guest, create_room=create_room)
                     if mxid != None:
